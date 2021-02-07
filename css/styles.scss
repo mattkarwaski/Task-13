@@ -1,0 +1,175 @@
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 10% 90%;
+}
+
+.sidebar {
+    background-color: #cccccc;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.content {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr;
+    overflow: hidden;
+}
+
+.top {
+    background-color: #e7e7e7;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+}
+
+.news-section {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 2;
+    margin-top: 20px;
+
+    .search,
+    .news {
+        padding: 0 20px;
+    }
+
+    .search {
+        margin-bottom: 20px;
+    }
+}
+
+.news {
+    overflow-y: auto;
+    height: 100%;
+
+    .card {
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+        text-decoration: none;
+        display: block;
+        line-height: 2rem;
+        margin-bottom: 20px;
+    }
+}
+
+.theme-night {
+    .sidebar {
+        background-color: #333;
+    }
+
+    .top {
+        background-color: #252525;
+    }
+
+    .content {
+        background-color: #222;
+    }
+
+    .news {
+        .card {
+            background-color: #333;
+        }
+        .card-title {
+            color: white;
+        }
+        .card-text {
+            color: #ccc;
+        }
+    }
+
+    .search {
+        .form-control {
+            background-color: #444;
+            border-color: rgba(187, 187, 187, 0.25);
+            color: #ccc;
+
+            &:focus {
+                border-color: #999;
+                box-shadow: 0 0 0 0.25rem
+                    rgba(187, 187, 187, 0.25);
+            }
+        }
+    }
+    .weather {
+        .card {
+            background-color: #333;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+            .title,
+            span,
+            .temp {
+                color: white;
+            }
+        }
+
+        .thunderstorm {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #43505e
+            );
+        }
+
+        .drizzle {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #244049
+            );
+            color: white;
+        }
+
+        .rain {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #3c5c70
+            );
+        }
+
+        .snow {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #344852
+            );
+        }
+
+        .clear {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #63593e
+            );
+        }
+
+        .clouds {
+            background-image: linear-gradient(
+                135deg,
+                #333,
+                #747474
+            );
+            color: white;
+        }
+    }
+}
+
+
+@import './weather';
+@import './theme-night';
